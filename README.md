@@ -11,19 +11,19 @@ This newly created activity must have a activity_style file containing the style
 This is how the project directory should look:-
 
 
-  Android
+    Android
   
-  IOS
+    IOS
   
-  src
+    src
   
-    activity_name
+      activity_name
     
-      activity_name.js
+        activity_name.js
       
-      activity_name_style.js
+        activity_name_style.js
   
-  app.js
+    app.js
   
   .
   
