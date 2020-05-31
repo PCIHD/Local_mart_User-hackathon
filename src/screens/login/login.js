@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
+    Button,
   TextInput,
   ImageBackground,
   SafeAreaView,
@@ -9,7 +10,7 @@ import {
 } from 'react-native';
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
-import {Button} from '../../component/login_button';
+
 
 class Login extends Component {
   not_registered_handler = () => {
@@ -66,7 +67,7 @@ class Login extends Component {
               />
             </View>
 
-            <Button rounded onPress={this.handle_login}/>
+            <Button title = 'Login' onPress={this.handle_login}/>
 
 
 

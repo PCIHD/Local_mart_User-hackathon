@@ -6,6 +6,7 @@ class button extends Component{
      const {text , onPress} = this.props;
      return(
        //todo create custom button   https://stackoverflow.com/questions/40051449/react-native-touchable-highlight-and-touchable-native-feedback-for-making-my-men
+     <View></View>
      );
     }
 
