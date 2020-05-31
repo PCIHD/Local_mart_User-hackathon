@@ -19,6 +19,7 @@ import Navigator from './src/routes/routes';
 
 const App: () => React$Node = () => {
   return (
+
 <Navigator/>
   );
 };

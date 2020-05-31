@@ -1,0 +1,24 @@
+import  React , {Component} from 'react';
+import {View,StyleSheet} from "react-native";
+
+class button extends Component{
+    render() {
+     const {text , onPress} = this.props;
+     return(
+       //todo create custom button   https://stackoverflow.com/questions/40051449/react-native-touchable-highlight-and-touchable-native-feedback-for-making-my-men
+     );
+    }
+
+}
+
+export default button;
+
+const style = StyleSheet.create({
+    button:{
+        backgroundColor: '#3DBDC3',
+        width:'40%',
+        height:'30%',
+
+    }
+});
+

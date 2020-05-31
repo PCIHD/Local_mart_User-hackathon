@@ -4,13 +4,20 @@ import Login from '../screens/login/login';
 import Register from '../screens/register/register';
 
 const screens = {
-    Login: {
-        screen: Login
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      headerShown: false,
+      headerStatusBarHeight: 0,
     },
-    Register:{
-        screen: Register
-    }
-}
+  },
+  Register: {
+    screen: Register,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+};
 
 const HomeStack = createStackNavigator(screens);
 
