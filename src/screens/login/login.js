@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-    Button,
+  Button,
   TextInput,
   ImageBackground,
   SafeAreaView,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
-
+import FlatButton from '../../component/login_button';
 
 class Login extends Component {
   not_registered_handler = () => {
@@ -41,7 +41,7 @@ class Login extends Component {
     const background_img = '../../../assets/base_theme/background.png';
     return (
       <SafeAreaView style={global_styles.base_style}>
-        <StatusBar barStyle="light-content" backgroundColor="#27BAC3" />
+        <StatusBar barStyle="light-content" backgroundColor="#3DBDC3" />
         <ImageBackground
           source={require(background_img)}
           style={global_styles.image}>
@@ -52,25 +52,26 @@ class Login extends Component {
             Welcome back
           </Text>
           <View style={styles.login_page}>
-            <View style={styles.input_view}>
-              <Text>Username</Text>
-              <TextInput
-                style={styles.input_style}
-                onChangeText={text => this.setState({usr_nm: text})}
+            <TextInput
+              style={styles.input_style}
+              onChangeText={text => this.setState({usr_nm: text})}
+              placeholder="Username"
+            />
+
+            <TextInput
+              style={styles.input_style}
+              onChangeText={text => this.setState({paswd: text})}
+              placeholder="Password"
+            />
+
+            <View style={styles.button}>
+              <FlatButton
+                text="Login"
+                style={styles.login_button}
+                onPress={this.handle_login}
               />
             </View>
-            <View style={styles.input_view}>
-              <Text>Password</Text>
-              <TextInput
-                style={styles.input_style}
-                onChangeText={text => this.setState({paswd: text})}
-              />
-            </View>
-
-            <Button title = 'Login' onPress={this.handle_login}/>
-
-
-
+            <Text style={styles.forgot_password}>Forgot Password?</Text>
             <Text
               style={styles.not_registered_text}
               onPress={this.not_registered_handler}>
