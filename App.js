@@ -7,21 +7,11 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import Navigator from './src/routes/routes';
+
+import Index from './src';
 
 const App: () => React$Node = () => {
-  return (
-
-<Navigator/>
-  );
+  return <Index />;
 };
 
 export default App;

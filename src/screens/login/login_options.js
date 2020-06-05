@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-  Button,
-  TextInput,
   ImageBackground,
   SafeAreaView,
   StatusBar,
@@ -19,9 +17,17 @@ class Login_options extends Component {
   handle_login_press = () => {
     this.props.navigation.navigate('Login');
   };
-
+  componentDidMount() {
+    if (this.state.logged_in === true) {
+      this.props.navigation.navigate('ItemFeed');
+    }
+  }
   render() {
     const background_img = '../../../assets/base_theme/background.png';
+    this.state = {
+      logged_in: false, //todo  set to false for production
+    };
+
     return (
       <SafeAreaView style={global_styles.base_style}>
         <StatusBar barStyle="light-content" backgroundColor="#3DBDC3" />
