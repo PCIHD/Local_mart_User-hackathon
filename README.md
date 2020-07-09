@@ -2,6 +2,15 @@
 a user side app
 This is a react native app for the user side of things.Kindly follow the best practices given below to ensure a smooth coding experience
 for you and your friends.
+Steps to run the app in IDE:
+
+1)npm install
+2)run configutation 
+or
+2)npm start( cd  your folder path)
+3)react-native run-android (for android)
+
+
 
 
 All the functionality for the app goes into the src folder.
