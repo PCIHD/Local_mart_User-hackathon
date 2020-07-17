@@ -7,6 +7,7 @@ import {
   ImageBackground,
   SafeAreaView,
   StatusBar,
+    TouchableOpacity
 } from 'react-native';
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
@@ -47,19 +48,37 @@ const Login = ({navigation}) => {
             autoCorrect={false}
             secureTextEntry
           />
+            <View style={{
+                marginTop: 10 ,         // 'Gap' between the content & the underline
+            }} />
+<View style={styles.container}>
+    <TouchableOpacity onPress={() => {  navigation.navigate('Forget')} }>
+        <Text style={{textDecorationLine: 'underline'}} >Forgot Password?</Text>
+    </TouchableOpacity>
 
+</View>
+
+        <View style={{
+ marginTop: 25 ,         // 'Gap' between the content & the underline
+          }} />
           <View style={styles.button}>
+
             <FlatButton text="Login" style={styles.login_button} />
           </View>
-          <Text style={styles.forgot_password}>Forgot Password?</Text>
+          {/*For providing space between items*/}
+          <View style={{
+             marginTop: 15 ,         // 'Gap' between the content & the underline
+          }} />
 
-          <Text
-            style={styles.not_registered_text}
-            onPress={() => {
-              navigation.navigate('Register');
-            }}>
-            not registered yet?
-          </Text>
+          <View style={{flexDirection: 'row' }}>
+            <Text>Not registered yet?  </Text>
+           <TouchableOpacity onPress={() => {  navigation.navigate('Register')} }>
+               <Text style={ styles.not_registered_text}> Sign up!</Text>
+            </TouchableOpacity>
+
+
+
+            </View>
         </View>
       </ImageBackground>
     </SafeAreaView>

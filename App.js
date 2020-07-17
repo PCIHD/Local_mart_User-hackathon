@@ -14,6 +14,7 @@ import Login from './src/screens/login/login';
 import Register from './src/screens/register/register';
 import Itemfeed from './src/screens/main_activity/itemfeed';
 import ShopView from './src/component/shopView';
+import forget_password from './src/screens/forget_password/forget_password.js';
 import {createAppContainer} from 'react-navigation';
 const HomeStack = createStackNavigator(
   {
@@ -21,11 +22,14 @@ const HomeStack = createStackNavigator(
 
     Login: Login,
 
+
     Register: Register,
 
     ItemFeed: Itemfeed,
 
     ShopView: ShopView,
+
+      Forget: forget_password,
   },
   {
     initialRouteName: 'Login_options',

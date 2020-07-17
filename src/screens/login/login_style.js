@@ -1,17 +1,14 @@
 import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
-  forgot_password: {
-    textAlign: 'center',
+  container: {
 
-    color: '#b0b0b0',
+    marginRight:'-55%'
+
+
   },
   not_registered_text: {
-    textAlign: 'center',
-    bottom: 0,
-    position: 'absolute',
-    color: '#b0b0b0',
-    left: 0,
-    right: 0,
+    marginBottom:60,
+    textDecorationLine: 'underline'
   },
   input_style: {
     margin: 15,
