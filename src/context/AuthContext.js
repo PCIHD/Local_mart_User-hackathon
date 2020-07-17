@@ -2,7 +2,7 @@ import createDataContext from './createDataContext';
 import trackerApi from '../api/api';
 //import AsyncStorage from '@react-native-community/async-storage';
 import {navigate} from '../navigationRef';
-
+// Authorization Cntext , all auth logic here
 const authReducer = (state, action) => {
   switch (action.type) {
     case 'add_error':

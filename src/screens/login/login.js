@@ -7,7 +7,7 @@ import {
   ImageBackground,
   SafeAreaView,
   StatusBar,
-    TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
@@ -36,8 +36,6 @@ const Login = ({navigation}) => {
             onChangeText={setEmail}
             autoCapitalize={'none'}
             autoCorrect={false}
-
-
           />
 
           <TextInput
@@ -48,37 +46,47 @@ const Login = ({navigation}) => {
             autoCorrect={false}
             secureTextEntry
           />
-            <View style={{
-                marginTop: 10 ,         // 'Gap' between the content & the underline
-            }} />
-<View style={styles.container}>
-    <TouchableOpacity onPress={() => {  navigation.navigate('Forget')} }>
-        <Text style={{textDecorationLine: 'underline'}} >Forgot Password?</Text>
-    </TouchableOpacity>
+          <View
+            style={{
+              marginTop: 10, // 'Gap' between the content & the underline
+            }}
+          />
+          <View style={styles.container}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('forget');
+              }}>
+              <Text style={{textDecorationLine: 'underline'}}
+              >
+                Forgot Password?
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-</View>
-
-        <View style={{
- marginTop: 25 ,         // 'Gap' between the content & the underline
-          }} />
+          <View
+            style={{
+              marginTop: 25, // 'Gap' between the content & the underline
+            }}
+          />
           <View style={styles.button}>
-
             <FlatButton text="Login" style={styles.login_button} />
           </View>
           {/*For providing space between items*/}
-          <View style={{
-             marginTop: 15 ,         // 'Gap' between the content & the underline
-          }} />
+          <View
+            style={{
+              marginTop: 15, // 'Gap' between the content & the underline
+            }}
+          />
 
-          <View style={{flexDirection: 'row' }}>
-            <Text>Not registered yet?  </Text>
-           <TouchableOpacity onPress={() => {  navigation.navigate('Register')} }>
-               <Text style={ styles.not_registered_text}> Sign up!</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text>Not registered yet? </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Register');
+              }}>
+              <Text style={styles.not_registered_text}> Sign up!</Text>
             </TouchableOpacity>
-
-
-
-            </View>
+          </View>
         </View>
       </ImageBackground>
     </SafeAreaView>
