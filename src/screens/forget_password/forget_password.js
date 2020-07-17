@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import global_styles from '../global_styles/global_style';
 
-class Register extends Component {
+class Forgot_Password extends Component {
     render() {
         return (
             <View style={global_styles.base_style}>
@@ -12,4 +12,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default Forgot_Password;

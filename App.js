@@ -14,6 +14,7 @@ import Login from './src/screens/login/login';
 import Register from './src/screens/register/register';
 import Itemfeed from './src/screens/main_activity/itemfeed';
 import ShopView from './src/component/shopView';
+import Forgot_Password from "./src/screens/forget_password/forget_password";
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {Provider as AuthProvider} from './src/context/AuthContext';
 import {setNavigator} from './src/navigationRef';
@@ -24,6 +25,7 @@ const HomeStack = createSwitchNavigator(
             Login_options:Login_options,
             Login:Login,
             Register:Register,
+            forget:Forgot_Password
 
         }),
         shop_Flow:createStackNavigator({
