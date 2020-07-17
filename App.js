@@ -14,22 +14,34 @@ import Login from './src/screens/login/login';
 import Register from './src/screens/register/register';
 import Itemfeed from './src/screens/main_activity/itemfeed';
 import ShopView from './src/component/shopView';
-import {createAppContainer} from 'react-navigation';
-const HomeStack = createStackNavigator(
-  {
-    Login_options: Login_options,
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import {Provider as AuthProvider} from './src/context/AuthContext';
+import {setNavigator} from './src/navigationRef';
 
-    Login: Login,
+const HomeStack = createSwitchNavigator(
+    {
+        loginFlow:createStackNavigator({
+            Login_options:Login_options,
+            Login:Login,
+            Register:Register,
 
-    Register: Register,
+        }),
+        shop_Flow:createStackNavigator({
+            ShopView:ShopView,
+            Itemfeed:Itemfeed
+        })
+    },
 
-    ItemFeed: Itemfeed,
-
-    ShopView: ShopView,
-  },
-  {
-    initialRouteName: 'Login_options',
-  },
 );
+
 const App = createAppContainer(HomeStack);
-export default App;
+export default () => {
+    return (
+        <AuthProvider>
+            <App
+                ref = {(navigator) => {
+                    setNavigator(navigator);
+                }} />
+        </AuthProvider>
+    );
+};
