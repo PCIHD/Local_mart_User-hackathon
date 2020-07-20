@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,12 @@ import {
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
 import FlatButton from '../../component/login_button';
+import {Context as AuthConext} from '../../context/AuthContext';
 
 const Login = ({navigation}) => {
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
-
+  const [username, setUsername] = useState('pcihd');
+  const [password, setPassword] = useState('starboost');
+  const {state, signin} = useContext(AuthConext);
   const background_img = '../../../assets/base_theme/background.png';
   return (
     <SafeAreaView style={global_styles.base_style}>
@@ -31,9 +32,9 @@ const Login = ({navigation}) => {
         <View style={styles.login_page}>
           <TextInput
             style={styles.input_style}
-            placeholder="Email"
-            value={Email}
-            onChangeText={setEmail}
+            placeholder="Username"
+            value={username}
+            onChangeText={setUsername}
             autoCapitalize={'none'}
             autoCorrect={false}
           />
@@ -41,7 +42,7 @@ const Login = ({navigation}) => {
           <TextInput
             style={styles.input_style}
             placeholder="Password"
-            value={Password}
+            value={password}
             onChangeText={setPassword}
             autoCorrect={false}
             secureTextEntry
@@ -69,7 +70,7 @@ const Login = ({navigation}) => {
             }}
           />
           <View style={styles.button}>
-            <FlatButton text="Login" style={styles.login_button} />
+            <FlatButton text="Login" style={styles.login_button} onPress={async () =>signin({username,password})}/>
           </View>
           {/*For providing space between items*/}
           <View

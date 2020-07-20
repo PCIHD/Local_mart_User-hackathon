@@ -1,12 +1,14 @@
-import React ,{Component} from 'react';
-import {View, Text} from 'react-native';
+import React, {Component, useState, useContext} from 'react';
+import {View, Text, TextInput, Button} from 'react-native';
 
-class  ShopView extends Component{
-    render(){
-        return(
-            <View><Text>test</Text></View>
-        )
-    }
-}
+const ShopView = () => {
+  const [code, setCode] = useState('');
+  return (
+    <View>
+      <Text>test</Text>
+
+    </View>
+  );
+};
 
 export default ShopView;

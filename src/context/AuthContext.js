@@ -1,38 +1,81 @@
 import createDataContext from './createDataContext';
-import trackerApi from '../api/api';
-//import AsyncStorage from '@react-native-community/async-storage';
+import {Auth} from 'aws-amplify';
+import AsyncStorage from '@react-native-community/async-storage';
 import {navigate} from '../navigationRef';
-// Authorization Cntext , all auth logic here
+
 const authReducer = (state, action) => {
   switch (action.type) {
     case 'add_error':
       return {...state, errorMessage: action.payload};
     case 'signup':
-      return {errorMessage: '', token: action.payload};
+      return {errorMessage: '', username: action.payload};
     default:
       return state;
   }
 };
 
 const signup = dispatch => {
-  return async ({email, password}) => {
+  return async ({username, email, password, phone_number}) => {
     //make api request for signup
+    try {
+      const user = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+          phone_number,
+        },
+      });
+      await AsyncStorage.setItem('token', user.userSub);
+      dispatch({type: 'signin', payload: username});
+      navigate('verify');
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  };
+};
+const verify = dispatch => {
+  return async ({username, code}) => {
+    try {
+      const user = await Auth.confirmSignUp(username, code);
+      console.log('code resent successfully', user);
+      navigate('ShopView');
+    } catch (e) {
+      console.log('error verifying', e);
+    }
   };
 };
 const signin = dispatch => {
-  return ({email, password}) => {
-    //make api request for signin
+  return async ({username, password}) => {
+    try {
+      const user = await Auth.signIn(username, password);
+      await AsyncStorage.setItem(
+        'token',
+        user.signInUserSession.accessToken.jwtToken,
+      );
+      dispatch({
+        type: 'signin',
+        payload: user.signInUserSession.accessToken.jwtToken,
+      });
+      navigate('ShopView');
+    } catch (error) {
+      console.log('error signing in', error);
+    }
   };
 };
 
 const signout = dispatch => {
-  return () => {
-    //make api request for signout
+  return async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
   };
 };
 
 export const {Provider, Context} = createDataContext(
   authReducer,
-  {signin, signout, signup},
-  {token: null, errorMessage: ''},
+  {signin, signout, signup,verify},
+  {token: null, errorMessage: '',username: ''},
 );

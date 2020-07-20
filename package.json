@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^5.9.5",
+    "amazon-cognito-identity-js": "^4.3.3",
+    "aws-amplify": "^3.0.20",
+    "aws-amplify-react-native": "^4.2.1",
     "expo-constants": "^9.0.0",
     "native-base": "^2.13.12",
     "react": "16.11.0",
@@ -20,6 +24,7 @@
     "react-native-safe-area-context": "^2.0.2",
     "react-native-screens": "^2.8.0",
     "react-native-unimodules": "^0.9.1",
+    "react-native-vector-icons": "^7.0.0",
     "react-navigation": "^4.3.9",
     "react-navigation-stack": "^2.5.1",
     "typescript": "^3.9.5"
