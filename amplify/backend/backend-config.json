@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"localmart66b2a12e": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
