@@ -15,8 +15,8 @@ import FlatButton from '../../component/login_button';
 import {Context as AuthConext} from '../../context/AuthContext';
 
 const Login = ({navigation}) => {
-  const [username, setUsername] = useState('pcihd');
-  const [password, setPassword] = useState('starboost');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const {state, signin} = useContext(AuthConext);
   const background_img = '../../../assets/base_theme/background.png';
   return (
