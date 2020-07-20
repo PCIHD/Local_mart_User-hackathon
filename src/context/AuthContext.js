@@ -8,7 +8,8 @@ const authReducer = (state, action) => {
     case 'add_error':
       return {...state, errorMessage: action.payload};
     case 'signup':
-      return {errorMessage: '', username: action.payload};
+      return {errorMessage: '', username: action.payload,token:action.user};
+
     default:
       return state;
   }
@@ -27,7 +28,8 @@ const signup = dispatch => {
         },
       });
       await AsyncStorage.setItem('token', user.userSub);
-      dispatch({type: 'signin', payload: username});
+
+      dispatch({type: 'signup', payload: username, token:user.userSub});
       navigate('verify');
     } catch (error) {
       console.log('error signing up:', error);
@@ -49,15 +51,11 @@ const signin = dispatch => {
   return async ({username, password}) => {
     try {
       const user = await Auth.signIn(username, password);
-      await AsyncStorage.setItem(
-        'token',
-        user.signInUserSession.accessToken.jwtToken,
-      );
-      dispatch({
-        type: 'signin',
-        payload: user.signInUserSession.accessToken.jwtToken,
-      });
+      await AsyncStorage.setItem('token',user.attributes.sub);
+
+      dispatch({type: 'signup', payload: username, token: user.userSub});
       navigate('ShopView');
+
     } catch (error) {
       console.log('error signing in', error);
     }
@@ -68,6 +66,7 @@ const signout = dispatch => {
   return async () => {
     try {
       await Auth.signOut();
+      navigate('Login_options');
     } catch (error) {
       console.log('error signing out: ', error);
     }
