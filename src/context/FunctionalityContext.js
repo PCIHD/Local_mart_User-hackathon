@@ -19,6 +19,6 @@ const get_location = dispatch => {
 };
 export const {Provider, Context} = createDataContext(
   functionalityReducer,
-  {}, // add methods to expose to other screens
+  {get_location}, // add methods to expose to other screens
   {}, // add states to expose to  other screens
 );
