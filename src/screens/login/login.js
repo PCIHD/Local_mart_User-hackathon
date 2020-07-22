@@ -12,12 +12,12 @@ import {
 import styles from './login_style';
 import global_styles from '../global_styles/global_style';
 import FlatButton from '../../component/login_button';
-import {Context as AuthConext} from '../../context/AuthContext';
+import {Context as AuthContext} from '../../context/AuthContext';
 
 const Login = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const {state, signin} = useContext(AuthConext);
+  const {state, signin} = useContext(AuthContext);
   const background_img = '../../../assets/base_theme/background.png';
   return (
     <SafeAreaView style={global_styles.base_style}>

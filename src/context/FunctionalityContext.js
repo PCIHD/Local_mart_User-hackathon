@@ -1,3 +1,5 @@
+
+
 import createDataContext from './createDataContext';
 import {Auth} from 'aws-amplify';
 import AsyncStorage from '@react-native-community/async-storage';

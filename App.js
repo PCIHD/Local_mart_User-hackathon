@@ -19,9 +19,7 @@ import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {Provider as AuthProvider} from './src/context/AuthContext';
 import {setNavigator} from './src/navigationRef';
 import verifyCode from "./src/screens/register/verifyCode";
-
-
-
+import GeoLocation from './src/context/GeoLocation';
 
 const HomeStack = createSwitchNavigator({
   loginFlow: createStackNavigator({
@@ -29,7 +27,7 @@ const HomeStack = createSwitchNavigator({
     Login: Login,
     Register: Register,
     verify:verifyCode,
-    forget:Forgot_Password
+    forget:GeoLocation
 
   }),
   shop_Flow: createStackNavigator({
