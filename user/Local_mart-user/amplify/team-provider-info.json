@@ -1,0 +1,20 @@
+{
+    "localmart": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-localmart-localmart-172619-authRole",
+            "UnauthRoleArn": "arn:aws:iam::084936275787:role/amplify-localmart-localmart-172619-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::084936275787:role/amplify-localmart-localmart-172619-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-localmart-localmart-172619-deployment",
+            "UnauthRoleName": "amplify-localmart-localmart-172619-unauthRole",
+            "StackName": "amplify-localmart-localmart-172619",
+            "StackId": "arn:aws:cloudformation:us-east-2:084936275787:stack/amplify-localmart-localmart-172619/072b40a0-d8a5-11ea-ae19-02356f1d181e",
+            "AmplifyAppId": "d2w74hft4xcuju"
+        },
+        "categories": {
+            "auth": {
+                "localmart0c8a9868": {}
+            }
+        }
+    }
+}
