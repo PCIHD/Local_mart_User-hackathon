@@ -18,7 +18,7 @@ import Forgot_Password from './src/screens/forget_password/forget_password';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {Provider as AuthProvider} from './src/context/AuthContext';
 import {setNavigator} from './src/navigationRef';
-import verifyCode from "./src/screens/register/verifyCode";
+import verifyCode from './src/screens/register/verifyCode';
 import GeoLocation from './src/context/GeoLocation';
 
 const HomeStack = createSwitchNavigator({
@@ -26,9 +26,8 @@ const HomeStack = createSwitchNavigator({
     Login_options: Login_options,
     Login: Login,
     Register: Register,
-    verify:verifyCode,
-    forget:GeoLocation
-
+    verify: verifyCode,
+    forget: Forgot_Password,
   }),
   shop_Flow: createStackNavigator({
     ShopView: ShopView,
