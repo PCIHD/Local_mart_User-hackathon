@@ -21,19 +21,27 @@ import {setNavigator} from './src/navigationRef';
 import verifyCode from './src/screens/register/verifyCode';
 import GeoLocation from './src/context/GeoLocation';
 
-const HomeStack = createSwitchNavigator({
-  loginFlow: createStackNavigator({
-    Login_options: Login_options,
-    Login: Login,
-    Register: Register,
-    verify: verifyCode,
-    forget: Forgot_Password,
-  }),
-  shop_Flow: createStackNavigator({
-    ShopView: ShopView,
-    Itemfeed: Itemfeed,
-  }),
-});
+const HomeStack = createSwitchNavigator(
+  {
+    loginFlow: createStackNavigator({
+      Login_options: Login_options,
+      Login: Login,
+      Register: Register,
+      verify: verifyCode,
+      forget: Forgot_Password,
+    }),
+    shop_Flow: createStackNavigator({
+      ShopView: ShopView,
+      Itemfeed: Itemfeed,
+    }),
+  },
+  {
+    initialRouteName: 'shop_Flow',
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
 
 const App = createAppContainer(HomeStack);
 export default () => {
