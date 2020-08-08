@@ -27,14 +27,19 @@ const HomeStack = createSwitchNavigator({
     Login: Login,
     Register: Register,
     verify:verifyCode,
-    forget:GeoLocation
+    forget:Forgot_Password
 
   }),
   shop_Flow: createStackNavigator({
     ShopView: ShopView,
     Itemfeed: Itemfeed,
   }),
-});
+},{
+    initialRouteName: 'shop_Flow',
+    navigationOptions: {
+      header: null,
+    },
+  },);
 
 const App = createAppContainer(HomeStack);
 export default () => {
