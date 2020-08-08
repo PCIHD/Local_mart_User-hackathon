@@ -20,26 +20,40 @@ import {Provider as AuthProvider} from './src/context/AuthContext';
 import {setNavigator} from './src/navigationRef';
 import verifyCode from './src/screens/register/verifyCode';
 import GeoLocation from './src/context/GeoLocation';
+import shopList from './src/screens/shopList/shopList';
 
 const HomeStack = createSwitchNavigator(
   {
-    loginFlow: createStackNavigator({
-      Login_options: Login_options,
-      Login: Login,
-      Register: Register,
-      verify: verifyCode,
-      forget: Forgot_Password,
-    }),
-    shop_Flow: createStackNavigator({
-      ShopView: ShopView,
-      Itemfeed: Itemfeed,
-    }),
+    loginFlow: createStackNavigator(
+      {
+        Login_options: Login_options,
+        Login: Login,
+        Register: Register,
+        verify: verifyCode,
+        forget: Forgot_Password,
+      },
+      {
+        defaultNavigationOptions: {
+          headerShown: false,
+        },
+      },
+    ),
+    shop_Flow: createStackNavigator(
+      {
+          ShopList:shopList,
+        ShopView: ShopView,
+        Itemfeed: Itemfeed,
+
+      },
+      {
+        defaultNavigationOptions: {
+          headerShown: false,
+        },
+      },
+    ),
   },
   {
     initialRouteName: 'shop_Flow',
-    navigationOptions: {
-      header: null,
-    },
   },
 );
 
