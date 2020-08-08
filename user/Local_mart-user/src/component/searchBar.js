@@ -3,7 +3,7 @@ import {View, TextInput,StyleSheet} from 'react-native';
 
 const SearchBar = ({search, setSearch}) => {
     return <View style={styles.searchbarStyle}>
-        <TextInput
+        <TextInput style={styles.inputstyle}
             placeholder={'search'}
             value={search}
             onChangeText={setSearch}
@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
 
 
 
+    },
+    inputstyle:{
+        paddingHorizontal:15
     }
 });
 
