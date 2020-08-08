@@ -15,10 +15,17 @@ import {
 
 import global_styles from '../global_styles/global_style';
 import ADDButton from '../../component/add_button';
-import {Context as AuthContext} from '../../context/AuthContext';
+
 import Slots from '../../component/slots';
+import Review_stars from '../../component/review_stars';
+
 const ShopView = ({navigation}) => {
-  const {state, signup} = useContext(AuthContext);
+  const [no_people, set_no_people] = useState(0);
+  const handle_add = () => {
+    set_no_people(no_people + 1);
+    console.log(no_people);
+  };
+
   const phoneNo = '90324124';
 
   const background_img = '../../../assets/base_theme/background.png';
@@ -29,9 +36,7 @@ const ShopView = ({navigation}) => {
         source={require(background_img)}
         style={global_styles.image}
       />
-      <ScrollView
-
-        >
+      <ScrollView>
         <View style={styles.cardStyle}>
           <Image
             source={require('../../../assets/shop_image/shop-640-x-410.png')}
@@ -39,36 +44,23 @@ const ShopView = ({navigation}) => {
           />
           <Text style={styles.textTitle}>The Good Store</Text>
 
-          <View  style={styles.titleCardslots} >
+          <View style={styles.titleCardslots}>
             <Text style={styles.slotTextStyle}>Slots Next Hour</Text>
-            <ADDButton/>
-
+            <ADDButton onPress={handle_add} noPeople={no_people} />
           </View>
-          <Slots no_people={5}/>
+          <Slots no_people={no_people} />
         </View>
         <View style={styles.cardStyle}>
-
           <Text style={styles.textTitle}>Contact No:{phoneNo}</Text>
 
-          <View  style={styles.titleCardslots} >
+          <View style={styles.titleCardslots} />
 
-
-
+          <View style={styles.reviewRow}>
+            <Text style={styles.reviewText}>Reviews</Text>
+            <Review_stars no_stars={3} />
           </View>
+          <View style={styles.titleCardslots} />
         </View>
-        <View style={styles.cardStyle}>
-
-          <Text style={styles.textTitle}>Reviews</Text>
-
-          <View  style={styles.titleCardslots} >
-
-
-
-          </View>
-        </View>
-
-
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -79,27 +71,36 @@ const styles = StyleSheet.create({
   shopImage: {
     height: 250,
     width: 400,
-
   },
   cardStyle: {
     height: 400,
     width: 400,
-    alignContent:'center',
-    paddingVertical:20
+    alignContent: 'center',
+    paddingVertical: 20,
   },
   textTitle: {
-
     fontSize: 30,
-    fontWeight:'bold',
+    fontWeight: 'bold',
   },
   listStyle: {
     opacity: 100,
   },
 
-  titleCardslots:{
-    flexDirection:'row'
-
-
+  titleCardslots: {
+    flexDirection: 'row',
   },
-  slotTextStyle:{fontSize:14, padding:10,paddingRight:200,color:'#949494' }
+  slotTextStyle: {
+    fontSize: 14,
+    padding: 10,
+    paddingRight: 200,
+    color: '#949494',
+  },
+  reviewRow: {
+    flexDirection: 'row',
+  },
+  reviewText: {
+    marginRight: 180,
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
 });

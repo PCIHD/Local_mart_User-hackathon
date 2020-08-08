@@ -10,29 +10,37 @@ const slotColors = (no_people) => {
   var list = [];
   var i=0;
   for ( i = 0; i < no_people; i++) {
-    list.push(<View style={{width: 24, height: 20, color: '#fb5b01'}} />);
-    console.log("wors");
+    list.push(<View style={styles.orangeSlot} key={i} />);
+
   }
   for (no_people; i < 7; i++) {
-    list.push(<View style={{width: 24, height: 20, color: '#3dbdc3'}} />);
+    list.push(<View style={styles.turquoiseSlot} key={i} />);
   }
-  console.log(list);
+
 
   return list;
 };
 
 const Slots = ({no_people}) => {
-  return ;
+  return <View style={styles.slotStyle}>
+    {slotColors(no_people)}
+  </View>;
 };
 
 export default Slots;
 
 const styles = StyleSheet.create({
   slotStyle: {
-    height: 50,
-    width: 200,
-    padding: 5,
-    borderWidth: 2,
-    color: '#17bebb',
+
+    flexDirection:'row',
+    height: 20,
+    width:200,
+
+
+    borderRadius:5,
+    backgroundColor: '#A0E9E7'
+    ,
   },
+  orangeSlot:{width: 24,borderRadius:5, height: 20, backgroundColor: '#fb5b01',marginRight:5},
+  turquoiseSlot:{width: 24, borderRadius:5,height: 20, backgroundColor: '#3dbdc3',marginRight: 5}
 });

@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 
-class ADDButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const {onPress} = this.props;
+const ADDButton = ({onPress, noPeople}) => {
+  if (noPeople < 7) {
     return (
       <TouchableOpacity onPress={onPress}>
         <Image
@@ -15,8 +11,16 @@ class ADDButton extends Component {
         />
       </TouchableOpacity>
     );
+  } else {
+    return (
+      <Image
+        style={styles.button}
+        source={require('../../assets/base_theme/greyed_add.png')}
+      />
+    );
   }
-}
+};
+
 export default ADDButton;
 
 const styles = StyleSheet.create({
