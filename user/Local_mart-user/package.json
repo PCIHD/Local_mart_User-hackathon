@@ -35,7 +35,7 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/eslint-config": "^0.0.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-jest": "^24.9.0",
     "eslint": "^5.16.0",
     "jest": "^24.9.0",
